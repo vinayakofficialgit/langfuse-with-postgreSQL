@@ -57,7 +57,7 @@
     "express": "^5.2.1",
     "helmet": "^7.1.0",
     "ioredis": "^5.8.2",
-    "jsonpath-plus": "10.3.0",
+    "jsonpath-plus": "10.4.0",
     "lodash": "^4.17.23",
     "p-limit": "^7.3.0",
     "pg": "^8.13.0",

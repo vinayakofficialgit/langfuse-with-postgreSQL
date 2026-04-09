@@ -227,8 +227,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       jsonpath-plus:
-        specifier: 10.3.0
-        version: 10.3.0
+        specifier: 10.4.0
+        version: 10.4.0
       langchain:
         specifier: ^1.2.15
         version: 1.2.16(@langchain/core@1.1.34(@opentelemetry/api@1.9.0)(@opentelemetry/exporter-trace-otlp-proto@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.6.1(@opentelemetry/api@1.9.0))(openai@6.17.0(ws@8.18.3)(zod@4.3.6))(ws@8.18.3))(@opentelemetry/api@1.9.0)(@opentelemetry/exporter-trace-otlp-proto@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.6.1(@opentelemetry/api@1.9.0))(openai@6.17.0(ws@8.18.3)(zod@4.3.6))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(zod-to-json-schema@3.25.2(zod@4.3.6))
@@ -925,8 +925,8 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       jsonpath-plus:
-        specifier: 10.3.0
-        version: 10.3.0
+        specifier: 10.4.0
+        version: 10.4.0
       lodash:
         specifier: ^4.17.23
         version: 4.17.23
@@ -8468,8 +8468,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  jsonpath-plus@10.3.0:
-    resolution: {integrity: sha512-8TNmfeTCk2Le33A3vRRwtuworG/L5RrgMvdjhKZxvyShO+mBu2fP50OWUjRLNtvw344DdDarFh9buFAZs5ujeA==}
+  jsonpath-plus@10.4.0:
+    resolution: {integrity: sha512-T92WWatJXmhBbKsgH/0hl+jxjdXrifi5IKeMY02DWggRxX0UElcbVzPlmgLTbvsPeW1PasQ6xE2Q75stkhGbsA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -18093,7 +18093,7 @@ snapshots:
       import-in-the-middle: 1.14.2
       istanbul-lib-coverage: 3.2.2
       jest-docblock: 29.7.0
-      jsonpath-plus: 10.3.0
+      jsonpath-plus: 10.4.0
       koalas: 1.0.2
       limiter: 1.1.5
       lodash.sortby: 4.7.0
@@ -20261,7 +20261,7 @@ snapshots:
   json-schema-faker@0.5.9:
     dependencies:
       json-schema-ref-parser: 6.1.0
-      jsonpath-plus: 10.3.0
+      jsonpath-plus: 10.4.0
 
   json-schema-ref-parser@6.1.0:
     dependencies:
@@ -20290,7 +20290,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  jsonpath-plus@10.3.0:
+  jsonpath-plus@10.4.0:
     dependencies:
       '@jsep-plugin/assignment': 1.3.0(jsep@1.4.0)
       '@jsep-plugin/regex': 1.0.4(jsep@1.4.0)
