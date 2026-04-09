@@ -175,7 +175,7 @@
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/postcss": "^4.2.2",
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^15.0.7",
     "@types/bcryptjs": "^2.4.6",
     "@types/chroma-js": "^3.1.2",
