@@ -1,3 +1,4 @@
+import { organizationMetricsRouter } from "@/src/server/api/routers/organizationMetrics";
 import { createTRPCRouter } from "@/src/server/api/trpc";
 import { traceRouter } from "./routers/traces";
 import { generationsRouter } from "./routers/generations";
@@ -114,6 +115,7 @@ export const appRouter = createTRPCRouter({
   surveys: surveysRouter,
   naturalLanguageFilters: naturalLanguageFilterRouter,
   notificationPreferences: notificationPreferencesRouter,
+  organizationMetrics: organizationMetricsRouter,
 });
 
 // export type definition of API

@@ -98,6 +98,109 @@ Langfuse is an **open source LLM engineering** platform. It helps teams collabor
 
 - [Comprehensive API](https://langfuse.com/docs/api): Langfuse is frequently used to power bespoke LLMOps workflows while using the building blocks provided by Langfuse via the API. OpenAPI spec, Postman collection, and typed SDKs for Python, JS/TS are available.
 
+## 🏗️ Architecture and Code Flow
+
+Langfuse is built as a monorepo using pnpm workspaces and Turbo for orchestration, consisting of multiple interconnected services that handle LLM observability, prompt management, evaluations, and more.
+
+### Main Components
+
+- **web/**: Next.js 15+ application serving the frontend dashboard and tRPC-based API backend
+- **worker/**: Express.js server processing async queues for ingestion, evaluations, and integrations
+- **packages/shared/**: Shared TypeScript types, database schemas, and domain logic
+- **ee/**: Enterprise features including SSO, billing, and UI customization
+- **rag_llmops/**: Python-based LLMOps workflow component
+
+### Data Flow Architecture
+
+```
+Client SDKs (Python, JS, REST)
+    ↓
+Web Service (Next.js) → REST API + tRPC
+    ↓
+PostgreSQL (structured data) + S3 (raw events)
+    ↓
+Worker (ingestion queue processors)
+    ↓
+ClickHouse (time-series analytics)
+    ↓
+Web Dashboard (queries ClickHouse, reads from Postgres)
+```
+
+### Key Technologies
+
+**Frontend/Web:**
+- Next.js 15 with React and TypeScript
+- tRPC for type-safe API communication
+- Radix UI + TailwindCSS + Shadcn/ui for components
+- OpenTelemetry for instrumentation
+
+**Backend:**
+- Node.js (v24) runtime
+- Express.js (worker service)
+- Prisma ORM with PostgreSQL
+- ClickHouse for time-series analytics
+- Redis + BullMQ for job queues
+- NextAuth v4 for authentication
+
+**Databases:**
+- PostgreSQL: Structured data (users, projects, prompts, settings)
+- ClickHouse: High-volume trace and observation analytics
+- S3/MinIO: Object storage for raw events and media
+
+### Core Functionalities
+
+**Tracing & Observability:**
+- SDK-based instrumentation for LLM applications
+- Real-time trace capture and session grouping
+- Token usage, latency, and error tracking
+- Custom metadata and span context
+
+**Prompt Management:**
+- Versioned prompt templates with caching
+- Multi-prompt orchestration
+- Client/server-side performance optimization
+
+**Evaluations Framework:**
+- LLM-as-a-judge automated evaluation
+- Manual labeling and user feedback collection
+- Custom evaluation pipelines via APIs
+- Dataset-based benchmarking
+
+**Datasets & Experiments:**
+- Test set management for continuous evaluation
+- Experiment tracking and A/B testing
+- Integration with evaluation workflows
+
+**Playground:**
+- Interactive prompt and model testing
+- Direct iteration from production traces
+
+### API Architecture
+
+**tRPC Routers:** Domain-organized endpoints for traces, observations, prompts, evals, datasets, scores, sessions, projects, organizations, comments, and surveys.
+
+**Public REST API:** OpenAPI-compliant endpoints with API key authentication, webhooks, and batch exports.
+
+**Authentication:** Multi-provider support (credentials, OAuth, SSO) with role-based access control (RBAC) for organizations and projects.
+
+### Worker Queue System
+
+Asynchronous processing via BullMQ queues:
+- Ingestion queues for event processing
+- Evaluation execution queues
+- Batch export and data retention
+- Webhook delivery and integrations
+
+### Notable Patterns
+
+- **Domain-Driven Design:** Features organized by bounded contexts
+- **Polyglot Persistence:** Multiple databases for different data types
+- **Event-Driven Architecture:** Async queue processing
+- **Multi-tenancy:** Organization/project-level data isolation
+- **Observability-First:** OpenTelemetry instrumentation throughout
+
+This architecture enables Langfuse to handle high-volume trace ingestion, provide real-time observability, support complex evaluation workflows, and scale across self-hosted and cloud deployments.
+
 ## 📦 Deploy Langfuse
 
 <img width="4856" height="1322" alt="Langfuse Deployment Options" src="https://github.com/user-attachments/assets/98f020c7-7a20-4264-a201-65c41a52a5d5" />

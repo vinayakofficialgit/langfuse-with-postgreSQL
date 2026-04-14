@@ -1,4 +1,4 @@
-import { type Role } from "@langfuse/shared/src/db";
+import type { Role } from "@langfuse/shared/src/db";
 
 // Exported to silence @typescript-eslint/no-unused-vars v8 warning
 // (used for type extraction via typeof, which is a legitimate pattern)
@@ -45,3 +45,6 @@ export const organizationRoleAccessRights: Record<Role, OrganizationScope[]> = {
 
 export const orgNoneRoleComment =
   "No access to organization resources by default. User needs to be granted project-level access via project roles.";
+
+
+
